@@ -8,23 +8,24 @@ header {
     grid-area:header;
     background:#bf212e;
     text-align:center;
+    font-style:italic;
 }
 header h1 {
      font-size:3.5vw;
      color:#ffffff;
      font-family:Verdana Bold;
      margin: 0;
-     text-align:center;
+     text-align:center
 }
 header h2 {
-    font-size:2vw;
+    font-size:1.5vw;
     color:#ffffff;
     font-family:Verdana Italic;
     margin:0;
     text-align:center;
 }
 header h3 {
-    font-size:2vw;
+    font-size:1vw;
     color:#ffffff;
     font-family:Verdana;
     margin:0;
@@ -50,7 +51,7 @@ header h3 {
     }
 body {
   font-family: Verdana;
-  background: linear-gradient(to right, #0e5073, #7b8c88);
+  background: linear-gradient(to top, #cac537, #0e5073);
   margin:0;
   padding:0;
 }
@@ -67,11 +68,11 @@ nav li {
 }
 
 nav a {
-    text-decoration:Arial;
+    font-family:Arial;
     color:#ffffff;
 }
 nav a:hover {
-    text-shadow: 2px 2px 5px #bf212e;
+    text-shadow: 3px 3px 5px #0e5073;
 }
 
 main {
@@ -113,6 +114,10 @@ main p {
 section {
   grid-area:section;
 }
+.figA {
+  grid-area:figA;
+  background-color:#4f8ca6;
+}
 .figB {
   grid-area:figB;
   background-color:#4f8ca6;
@@ -137,7 +142,6 @@ section {
 .homeD {
   grid-area:homeD;
 }
-}
 figure {
   margin:0;
   text-align:center;
@@ -148,10 +152,20 @@ figcaption {
   font-weight:bold;
 }
 figure img {
+  margin:auto;
   margin-top:16px;
-  max-width: 20em;
-  border: 2px solid #ffffff;
+  max-width: 12em;
+  border: 4px solid #ffffff;
   border-radius: 5px;
+  max-width:225px;
+}
+.kennelgrid ul {
+  font-size:2em;
+  color:#ffffff;
+}
+.homegrid ul {
+  font-size:2em;
+  color:#ffffff;
 }
 
 aside {
@@ -160,20 +174,33 @@ aside {
   padding:5px;
 }
 aside li {
-  color:#0000b0;
-  font-size:1.25em;
-  padding: 10px 0;
+    padding:10px 10px;
+    list-style-type:none;
+    font-size:2em;
+    font-weight:bold;
+    text-align:center;
+}
+aside a:hover {
+    text-shadow: 2px 2px 4px #ffffff;
 }
 aside p {
   color:#ffffff;
   font-size:1.5em;
   text-align:center;
 }
-aside h2 {
+aside h1 {
   color:#ffffff;
-  font-size:1.5em;
+  font-size:2.5em;
   text-align:center;
   font-family:Verdana Bold;
+}
+aside img {
+  margin:auto;
+  border: 4px solid #ffffff;
+  border-radius: 5px;
+  float:right;
+   margin-top:16px;
+  max-width: 12em;
 }
 article {
   color:#ffffff;
@@ -203,8 +230,34 @@ footer p {
      font-size:2em;
      color:#ffffff;
      margin:0;
-     font-family:Arial;
+     font-family:Comic;
 }
+.aboutA {
+  grid-area:aboutA;
+}
+.aboutC {
+  grid-area:aboutC;
+}
+.aboutD {
+  grid-area:aboutD;
+}
+.aboutE {
+  grid-area:aboutE;
+}
+section img {
+   grid-area:sectionpic;
+    padding:5px;
+    height:12vmax;
+    width:18vmax;
+    text-align:center;
+    margin:2px;
+    border:6px solid #ffffff;
+    border-radius:5px;
+    }
+.sectionpic {
+  grid-area:sectionpic;
+}
+
 .nestedgrid {
 display:grid;
 grid-template-columns:100%;
@@ -239,21 +292,21 @@ grid-template-areas:
     }
     
     /*-------------------------Mobile Media Query----------------------------*/
-      .container1 { /*for later*/
+      .container1 {
   display: grid;
   grid-template-columns:100%;
   grid-gap:.5em;
   margin:1%;
+  grid-gap:.5em;
   grid-template-areas:
     "header"
     "nav"
     "main"
     "footer";
-    }
-      
-      
-      .homegrid {
+      }
+    .homegrid {
   grid-template-columns:1fr;
+  justify-items: center;
   grid-template-areas:
    "homeA"
    "figB"
@@ -263,7 +316,18 @@ grid-template-areas:
    "figD"
    "homeD"
     }
-    
+    .aboutgrid {
+  display:grid;
+  grid-template-columns:1fr;
+  justify-items: center;
+  grid-template-areas:
+   "aboutA"
+   "aboutC"
+   "aboutD"
+   "aboutE"
+    }
+  
+  
      /*-----------------------Tablet Media Query------------------------*/
   @media only screen and (min-width: 480px)  {
     .container1 {
@@ -284,7 +348,17 @@ grid-template-areas:
    "figD"
    "homeD"
     }
-/* Below will change from hamburger menu to side navigation*/
+    
+     .aboutgrid {
+  grid-template-columns:1fr;
+  justify-items: center;
+  grid-template-areas:
+   "aboutA"
+   "aboutC"
+   "aboutD"
+   "aboutE"
+    }
+       /* Below will change from hamburger menu to side navigation*/
   
 .toggleNav {
     display: none; /*Makes the hamburger icon with the word "Menu" to disappear at this screen size*/
@@ -303,22 +377,44 @@ grid-template-areas:
   /*-----------------------Desktop Media Query------------------------*/
   @media only screen and (min-width: 960px)  {
     
-.container1 { /*for later*/
+    .container1 {
   grid-template-columns:auto 1fr;
   grid-template-areas:
     "header header"
     "nav main"
+    "aside aside"
     "footer footer";
-    }
-    
+}
     .homegrid {
   display: grid;
-  grid-template-columns:auto 1fr;
-  grid-gap:.5em;
-  margin:1%;
+  grid-template-columns:1fr 1fr 1fr;
   grid-template-areas:
   "homeA homeA homeA"
   "figB figC figD"
   "homeB homeC homeD";
+    }
+    .kennelgrid {
+  display: grid;
+  grid-template-columns:1fr 1fr;
+  grid-template-areas:
+  "homeA homeA"
+  "figB figC"
+  "homeB homeC"
+  "aside aside";
+    }
+    .gallerygrid {
+  display: grid;
+  grid-template-columns:1fr 1fr;
+  grid-template-areas:
+  "homeA homeA"
+  "figA figB"
+  "figC figD";
+    }
+   .aboutgrid {
+  grid-template-columns:1.5fr 1fr;
+  grid-template-areas:
+   "aboutA aboutA"
+   "aboutC aboutD"
+   "aboutE aboutE"
     }
   }
